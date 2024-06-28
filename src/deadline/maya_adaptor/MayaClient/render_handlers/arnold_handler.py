@@ -49,6 +49,9 @@ class ArnoldHandler(DefaultMayaHandler):
         # Set the arnold render type so that we don't just make .ass files, but the actual image
         maya.cmds.setAttr("defaultArnoldRenderOptions.renderType", 0)
 
+        # Set the arnold append mode to true
+        maya.cmds.setAttr("defaultArnoldDriver.append", True)
+
         # Set the log verbosity high enough that we get progress reporting output
         if maya.cmds.getAttr("defaultArnoldRenderOptions.log_verbosity") < 2:
             maya.cmds.setAttr("defaultArnoldRenderOptions.log_verbosity", 2)
